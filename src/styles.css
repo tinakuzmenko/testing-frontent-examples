@@ -1,0 +1,64 @@
+body {
+  background-color: #f8f8f8;
+}
+
+.App {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+
+.ExampleContainer {
+  padding: 0 1rem;
+}
+
+.Form {
+  display: grid;
+  width: 50%;
+  row-gap: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1px 2px 0 #1018280f, 0 1px 3px 0 #1018281a;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.FormField {
+  display: grid;
+  text-align: left;
+  row-gap: 0.5rem;
+
+  &.FormField--checkbox {
+    grid-template-columns: 1fr;
+  }
+}
+
+.InputField {
+  display: grid;
+  row-gap: 0.5rem;
+  align-items: center;
+}
+
+.Error {
+  color: red;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.Input {
+  display: flex;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  width: 8rem;
+}
+
+.Btn {
+  display: flex;
+  width: max-content;
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #006aff;
+  color: #ffffff;
+  border-radius: 3px;
+  font-weight: 500;
+}
