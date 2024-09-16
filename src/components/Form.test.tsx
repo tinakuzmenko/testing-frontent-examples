@@ -9,7 +9,7 @@ describe("Form Component", () => {
     render(<Form />);
 
     // ACT
-    userEvent.click(screen.getByRole("button", { name: /submit/i }));
+   await userEvent.click(screen.getByRole("button", { name: /submit/i }));
 
     // ASSERT
     await waitFor(() => {
@@ -18,6 +18,33 @@ describe("Form Component", () => {
       expect(
         screen.getByText(/you must agree to the terms/i)
       ).toBeInTheDocument();
+    });
+  });
+
+  test("show validation error when age is negative number", async () => {
+    // ARRANGE
+    render(<Form />);
+
+    const nameInput = screen.getByLabelText(/your name/i);
+    const ageInput = screen.getByLabelText(/your age/i);
+    const checkbox = screen.getByLabelText(/I agree to terms and conditions/i);
+
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+
+    // ACT
+    await userEvent.type(nameInput, "Jane Doe");
+    await userEvent.type(ageInput, "-30" )
+    await userEvent.click(checkbox);
+
+    await userEvent.click(submitButton);
+
+    // ASSERT
+    await waitFor(() => {
+      expect(screen.queryByText(/name is required/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/age must be a positive number/i)).toBeInTheDocument();
+      expect(
+        screen.queryByText(/you must agree to the terms/i)
+      ).not.toBeInTheDocument();
     });
   });
 

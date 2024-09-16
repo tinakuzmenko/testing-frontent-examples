@@ -25,11 +25,12 @@ const Form = () => {
   };
 
   const validateForm = () => {
-    let errors = {
+    const errors = {
       username: "",
       age: "",
       agreeToTerms: "",
     };
+
     let isValid = true;
 
     if (!formData.username.trim()) {
