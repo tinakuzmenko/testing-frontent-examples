@@ -1,6 +1,10 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, FC, FormEvent, useState} from "react";
 
-const Form = () => {
+type FormProps = {
+  index: number;
+}
+
+const Form: FC<FormProps> = ({ index }) => {
   const [submitDataShown, setSubmitDataShown] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -72,7 +76,7 @@ const Form = () => {
 
   return (
     <div className="ExampleContainer">
-      <h2>Example 1 - Form</h2>
+      <h2>Example {index} - Form</h2>
       <form className="Form" onSubmit={handleSubmit}>
         <div className="FormField">
           <div className="InputField">

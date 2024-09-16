@@ -5,7 +5,7 @@ export default function App() {
     return (
         <div className="App">
             <h1>Test examples</h1>
-            <Form />
+            <Form index={1} />
         </div>
     );
 }
