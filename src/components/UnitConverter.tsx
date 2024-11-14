@@ -1,4 +1,4 @@
-import {useState, ChangeEvent} from "react";
+import { useState, ChangeEvent } from 'react';
 
 const MILES_TO_KM = 1.60934;
 const KM_TO_MILES = 1 / MILES_TO_KM;
@@ -35,12 +35,12 @@ const UnitConverter = () => {
   return (
     <div className="ExampleContainer">
       <h2>Example 2 - Unit converter</h2>
-      <div className='Form'>
-        <div className='FormField'>
+      <div className="Form">
+        <div className="FormField">
           <div className="InputField">
             <label htmlFor="milesInput">Miles: </label>
             <input
-              className='Input'
+              className="Input"
               type="number"
               id="milesInput"
               value={miles}
@@ -48,10 +48,10 @@ const UnitConverter = () => {
               placeholder="Enter miles"
             />
           </div>
-          <div className='InputField'>
+          <div className="InputField">
             <label htmlFor="kilometersInput">Kilometers: </label>
             <input
-              className='Input'
+              className="Input"
               type="number"
               id="kilometersInput"
               value={kilometers}
@@ -62,7 +62,7 @@ const UnitConverter = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default UnitConverter;

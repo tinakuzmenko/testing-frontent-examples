@@ -1,53 +1,53 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 const Form = () => {
   const [submitDataShown, setSubmitDataShown] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: "",
-    age: "",
+    username: '',
+    age: '',
     agreeToTerms: false,
   });
 
   const [formErrors, setFormErrors] = useState({
-    username: "",
-    age: "",
-    agreeToTerms: "",
+    username: '',
+    age: '',
+    agreeToTerms: '',
   });
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = event.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     });
     setSubmitDataShown(false);
   };
 
   const validateForm = () => {
     const errors = {
-      username: "",
-      age: "",
-      agreeToTerms: "",
+      username: '',
+      age: '',
+      agreeToTerms: '',
     };
 
     let isValid = true;
 
     if (!formData.username.trim()) {
-      errors.username = "Name is required.";
+      errors.username = 'Name is required.';
       isValid = false;
     }
 
     if (!formData.age) {
-      errors.age = "Age is required.";
+      errors.age = 'Age is required.';
       isValid = false;
     } else if (parseInt(formData.age) <= 0) {
-      errors.age = "Age must be a positive number.";
+      errors.age = 'Age must be a positive number.';
       isValid = false;
     }
 
     if (!formData.agreeToTerms) {
-      errors.agreeToTerms = "You must agree to the terms and conditions.";
+      errors.agreeToTerms = 'You must agree to the terms and conditions.';
       isValid = false;
     }
 
@@ -61,8 +61,8 @@ const Form = () => {
     if (validateForm()) {
       setSubmitDataShown(true);
       setFormData({
-        username: "",
-        age: "",
+        username: '',
+        age: '',
         agreeToTerms: false,
       });
     } else {
@@ -112,7 +112,7 @@ const Form = () => {
               id="agreeToTerms"
               checked={formData.agreeToTerms}
               onChange={handleInputChange}
-            />{" "}
+            />{' '}
             I agree to terms and conditions
           </label>
           {formErrors.agreeToTerms && (
