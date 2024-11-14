@@ -7,7 +7,6 @@ const UnitConverter = () => {
   const [miles, setMiles] = useState('');
   const [kilometers, setKilometers] = useState('');
 
-  // Handle changes in the miles input
   const handleMilesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
@@ -21,7 +20,6 @@ const UnitConverter = () => {
     }
   };
 
-  // Handle changes in the kilometers input
   const handleKilometersChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setKilometers(value);
