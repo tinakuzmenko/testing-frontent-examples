@@ -6,13 +6,10 @@ import "@testing-library/jest-dom";
 
 describe("Form Component", () => {
   test("shows validation errors when submitting empty form", async () => {
-    // ARRANGE
     render(<Form />);
 
-    // ACT
    await userEvent.click(screen.getByRole("button", { name: /submit/i }));
 
-    // ASSERT
     await waitFor(() => {
       expect(screen.getByText(/name is required/i)).toBeInTheDocument();
       expect(screen.getByText(/age is required/i)).toBeInTheDocument();
@@ -23,7 +20,6 @@ describe("Form Component", () => {
   });
 
   test("show validation error when age is negative number", async () => {
-    // ARRANGE
     render(<Form />);
 
     const nameInput = screen.getByLabelText(/your name/i);
@@ -32,14 +28,11 @@ describe("Form Component", () => {
 
     const submitButton = screen.getByRole("button", { name: /submit/i });
 
-    // ACT
     await userEvent.type(nameInput, "Jane Doe");
     await userEvent.type(ageInput, "-30" )
     await userEvent.click(checkbox);
-
     await userEvent.click(submitButton);
 
-    // ASSERT
     await waitFor(() => {
       expect(screen.queryByText(/name is required/i)).not.toBeInTheDocument();
       expect(screen.queryByText(/age must be a positive number/i)).toBeInTheDocument();
@@ -50,7 +43,6 @@ describe("Form Component", () => {
   });
 
   test("does not show validation errors when form is valid", () => {
-    // ARRANGE
     render(<Form />);
 
     const nameInput = screen.getByLabelText(/your name/i);
@@ -59,14 +51,11 @@ describe("Form Component", () => {
 
     const submitButton = screen.getByRole("button", { name: /submit/i });
 
-    // ACT
     userEvent.type(nameInput, "Jane Doe");
     userEvent.type(ageInput, "30" )
     userEvent.click(checkbox);
-
     userEvent.click(submitButton);
 
-    // ASSERT
     expect(screen.queryByText(/name is required/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/age is required/i)).not.toBeInTheDocument();
     expect(
@@ -75,7 +64,6 @@ describe("Form Component", () => {
   });
 
   test("shows submitted message when form is valid", async () => {
-    // ARRANGE
     render(<Form />);
 
     const nameInput = screen.getByLabelText(/your name/i);
@@ -83,13 +71,11 @@ describe("Form Component", () => {
     const checkbox = screen.getByLabelText(/I agree to terms and conditions/i);
     const submitButton = screen.getByRole("button", { name: /submit/i });
 
-    // ACT
     await userEvent.type(nameInput, "Jane Doe");
     await userEvent.type(ageInput, "30");
     await userEvent.click(checkbox);
     await userEvent.click(submitButton);
 
-    // ASSERT
     await waitFor(() => {
       expect(screen.getByText(/form submitted!/i)).toBeInTheDocument();
     });

@@ -11,6 +11,85 @@ body {
   padding: 0 1rem;
 }
 
+.Wrapper {
+  display: grid;
+  width: max-content;
+  row-gap: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1px 2px 0 #1018280f, 0 1px 3px 0 #1018281a;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.LightTheme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.DarkTheme {
+  background-color: #383f4d;
+  color: #ffffff;
+}
+
+.SwitchWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.Switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.Slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.Slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.Switch input:checked + .Slider {
+  background-color: #006aff;
+}
+
+.Switch input:focus + .Slider {
+  outline: 2px solid #153c7a;
+}
+
+.Switch input:checked + .Slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
 .Form {
   display: grid;
   width: max-content;

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, ChangeEvent} from "react";
 
 const MILES_TO_KM = 1.60934;
 const KM_TO_MILES = 1 / MILES_TO_KM;
@@ -7,7 +7,7 @@ const UnitConverter = () => {
   const [miles, setMiles] = useState('');
   const [kilometers, setKilometers] = useState('');
 
-  const handleMilesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMilesChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
     setMiles(value);
@@ -20,7 +20,7 @@ const UnitConverter = () => {
     }
   };
 
-  const handleKilometersChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleKilometersChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setKilometers(value);
 
@@ -34,7 +34,7 @@ const UnitConverter = () => {
 
   return (
     <div className="ExampleContainer">
-      <h2>Example 1 - Unit converter</h2>
+      <h2>Example 2 - Unit converter</h2>
       <div className='Form'>
         <div className='FormField'>
           <div className="InputField">

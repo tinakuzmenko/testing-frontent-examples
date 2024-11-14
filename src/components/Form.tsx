@@ -72,7 +72,7 @@ const Form = () => {
 
   return (
     <div className="ExampleContainer">
-      <h2>Example 2 - Form</h2>
+      <h2>Example 3 - Form</h2>
       <form className="Form" onSubmit={handleSubmit}>
         <div className="FormField">
           <div className="InputField">
@@ -129,4 +129,3 @@ const Form = () => {
 };
 
 export default Form;
-
